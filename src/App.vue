@@ -2,31 +2,53 @@
   <section>
     <header><h1>My Friends</h1></header>
     <ul>
-      <FriendContact></FriendContact>
-      <FriendContact></FriendContact>
+      <FriendContact
+        v-for="friend in friends"
+        :key="friend.id"
+        :friend="friend"
+      ></FriendContact>
     </ul>
   </section>
 </template>
 
 <script>
-import FriendContact from './components/FriendContact.vue'
+import FriendContact from "./components/FriendContact.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    FriendContact
-  }
-}
+    FriendContact,
+  },
+  data() {
+    return {
+      friends: [
+        {
+          id: "manuel",
+          name: "Manuel Lopez",
+          phone: "3423423423423423",
+          email: "manuel@gmail.com",
+          isFavourite:true,
+        },
+        {
+          id: "luiz",
+          name: "luiz enriquez",
+          phone: "342342342asdas3423",
+          email: "luiz@gmail.com",
+          isFavourite:false,
+        },
+      ],
+    };
+  },
+};
 </script>
-
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Jost&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Jost&display=swap");
 * {
   box-sizing: border-box;
 }
 
 html {
-  font-family: 'Jost', sans-serif;
+  font-family: "Jost", sans-serif;
 }
 
 body {
@@ -84,5 +106,4 @@ header {
   border-color: #ec3169;
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.26);
 }
-
 </style>
